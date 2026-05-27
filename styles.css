@@ -1223,6 +1223,20 @@ button {
   }
 }
 
+.qr-card .social-card__icon {
+  width: 150px;
+  height: 150px;
+  background: white;
+  padding: 10px;
+  border-radius: var(--rounded);
+}
+
+.qr-code {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 /* ============================================
    FOOTER
    ============================================ */
