@@ -31,11 +31,28 @@ document.addEventListener('DOMContentLoaded', () => {
   hamburger.addEventListener('click', toggleMenu);
   navOverlay.addEventListener('click', toggleMenu);
 
-  // Close menu on link click
+  // Close menu on link click and navigate
   navLinks.forEach(link => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (e) => {
+      const targetId = link.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
       if (navLinksContainer.classList.contains('open')) {
         toggleMenu();
+      }
+
+      if (targetElement) {
+        e.preventDefault();
+        const offset = 80;
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = targetElement.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
       }
     });
   });
