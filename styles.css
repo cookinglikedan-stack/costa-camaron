@@ -251,114 +251,29 @@ button {
 .nav__links {
   display: flex;
   align-items: center;
-  gap: var(--space-lg);
+  gap: var(--space-md);
 }
 
-.nav__link {
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.nav__links a {
   color: var(--secondary);
-  position: relative;
-  padding: var(--space-xs) 0;
   transition: color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.nav__link::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--primary);
-  transition: width var(--transition-base);
-  border-radius: var(--rounded-full);
-}
-
-.nav__link:hover::after,
-.nav__link.active::after {
-  width: 100%;
-}
-
-.nav__link:hover {
+.nav__links a:hover {
   color: var(--primary);
 }
 
-/* Mobile hamburger */
+/* Hide hamburger since we don't have a mobile menu overlay now */
 .nav__hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  padding: 8px;
-  z-index: 1001;
-}
-
-.nav__hamburger span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--secondary);
-  border-radius: var(--rounded-full);
-  transition: transform var(--transition-base), opacity var(--transition-fast);
-}
-
-.nav__hamburger.open span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.nav__hamburger.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.nav__hamburger.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+  display: none !important;
 }
 
 @media (max-width: 768px) {
-  .nav__hamburger {
-    display: flex;
-  }
-
   .nav__links {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 75%;
-    max-width: 320px;
-    height: 100vh;
-    background: var(--surface-container-lowest);
-    flex-direction: column;
-    justify-content: center;
-    gap: var(--space-lg);
-    padding: var(--space-xl);
-    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.1);
-    transition: right var(--transition-slow);
-  }
-
-  .nav__links.open {
-    right: 0;
-  }
-
-  .nav__link {
-    font-family: var(--font-display);
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-  }
-
-  .nav__overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(27, 28, 28, 0.4);
-    z-index: 999;
-  }
-
-  .nav__overlay.open {
-    display: block;
+    gap: var(--space-sm);
   }
 }
 
